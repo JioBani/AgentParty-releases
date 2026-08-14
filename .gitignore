@@ -1,0 +1,5 @@
+# This repository is PUBLIC and holds release artifacts only.
+# The release token lives here for convenience — never commit it.
+.env
+.env.*
+*.token
