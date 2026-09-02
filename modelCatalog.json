@@ -239,9 +239,16 @@
       "context": "1M",
       "perf": 5,
       "costTier": 5,
-      "inPerM": 5,
-      "outPerM": 30,
-      "ioPerM": 11.25,
+      "inPerM": 4,
+      "outPerM": 20,
+      "ioPerM": 8,
+      "cacheReadPerM": 0.4,
+      "cacheWritePerM": 5,
+      "serviceTierPricing": {
+        "priority": { "inPerM": 8, "cacheReadPerM": 0.8, "cacheWritePerM": 10, "outPerM": 40 },
+        "fast": { "inPerM": 8, "cacheReadPerM": 0.8, "cacheWritePerM": 10, "outPerM": 40 }
+      },
+      "longContextPricing": { "thresholdTokens": 272000, "inputMultiplier": 2, "outputMultiplier": 1.5 },
       "reasoning": {
         "effort": {
           "options": [
@@ -271,9 +278,16 @@
       "context": "1M",
       "perf": 4,
       "costTier": 4,
-      "inPerM": 2.5,
-      "outPerM": 15,
-      "ioPerM": 5.63,
+      "inPerM": 2,
+      "outPerM": 12,
+      "ioPerM": 4.5,
+      "cacheReadPerM": 0.2,
+      "cacheWritePerM": 2.5,
+      "serviceTierPricing": {
+        "priority": { "inPerM": 4, "cacheReadPerM": 0.4, "cacheWritePerM": 5, "outPerM": 24 },
+        "fast": { "inPerM": 4, "cacheReadPerM": 0.4, "cacheWritePerM": 5, "outPerM": 24 }
+      },
+      "longContextPricing": { "thresholdTokens": 272000, "inputMultiplier": 2, "outputMultiplier": 1.5 },
       "reasoning": {
         "effort": {
           "options": [
@@ -303,9 +317,16 @@
       "context": "1M",
       "perf": 3,
       "costTier": 3,
-      "inPerM": 1,
-      "outPerM": 6,
-      "ioPerM": 2.25,
+      "inPerM": 0.2,
+      "outPerM": 1.2,
+      "ioPerM": 0.45,
+      "cacheReadPerM": 0.02,
+      "cacheWritePerM": 0.25,
+      "serviceTierPricing": {
+        "priority": { "inPerM": 0.4, "cacheReadPerM": 0.04, "cacheWritePerM": 0.5, "outPerM": 2.4 },
+        "fast": { "inPerM": 0.4, "cacheReadPerM": 0.04, "cacheWritePerM": 0.5, "outPerM": 2.4 }
+      },
+      "longContextPricing": { "thresholdTokens": 272000, "inputMultiplier": 2, "outputMultiplier": 1.5 },
       "reasoning": {
         "effort": {
           "options": [
@@ -336,8 +357,14 @@
       "perf": 5,
       "costTier": 5,
       "inPerM": 5,
+      "cacheReadPerM": 0.5,
       "outPerM": 30,
       "ioPerM": 11.25,
+      "serviceTierPricing": {
+        "priority": { "inPerM": 12.5, "cacheReadPerM": 1.25, "outPerM": 75 },
+        "fast": { "inPerM": 12.5, "cacheReadPerM": 1.25, "outPerM": 75 }
+      },
+      "longContextPricing": { "thresholdTokens": 272000, "inputMultiplier": 2, "outputMultiplier": 1.5 },
       "reasoning": {
         "effort": {
           "options": [
@@ -367,8 +394,14 @@
       "perf": 4,
       "costTier": 4,
       "inPerM": 2.5,
+      "cacheReadPerM": 0.25,
       "outPerM": 15,
       "ioPerM": 5.63,
+      "serviceTierPricing": {
+        "priority": { "inPerM": 5, "cacheReadPerM": 0.5, "outPerM": 30 },
+        "fast": { "inPerM": 5, "cacheReadPerM": 0.5, "outPerM": 30 }
+      },
+      "longContextPricing": { "thresholdTokens": 272000, "inputMultiplier": 2, "outputMultiplier": 1.5 },
       "reasoning": {
         "effort": {
           "options": [
@@ -398,8 +431,13 @@
       "perf": 1,
       "costTier": 3,
       "inPerM": 0.75,
+      "cacheReadPerM": 0.075,
       "outPerM": 4.5,
       "ioPerM": 1.69,
+      "serviceTierPricing": {
+        "priority": { "inPerM": 1.5, "cacheReadPerM": 0.15, "outPerM": 9 },
+        "fast": { "inPerM": 1.5, "cacheReadPerM": 0.15, "outPerM": 9 }
+      },
       "reasoning": {
         "effort": {
           "options": [
@@ -413,6 +451,43 @@
       },
       "vision": {
         "image": true,
+        "maxImages": 20,
+        "maxBytesPerImage": 5242880
+      }
+    },
+    {
+      "id": "Ox Alpha",
+      "label": "Ox Alpha",
+      "provider": "openrouter",
+      "runtimeModel": "claude-ox-alpha",
+      "orModelId": "stealth/ox-alpha",
+      "subscription": false,
+      "description": "OpenRouter preview of an anonymous 'Stealth' provider's reasoning model for coding and long-horizon agentic work. Free while the preview lasts; the provider retains prompts and completions but states it does not train on them. Reasoning cannot be turned off.",
+      "context": "1.05M",
+      "perf": 5,
+      "costTier": 1,
+      "inPerM": 0,
+      "outPerM": 0,
+      "ioPerM": 0,
+      "reasoning": {
+        "effort": {
+          "options": [
+            "low",
+            "high",
+            "max"
+          ],
+          "default": "max"
+        },
+        "thinking": {
+          "modes": [
+            "enabled"
+          ],
+          "default": "enabled"
+        }
+      },
+      "vision": {
+        "image": true,
+        "video": true,
         "maxImages": 20,
         "maxBytesPerImage": 5242880
       }
@@ -549,6 +624,19 @@
       "inPerM": 2,
       "outPerM": 6,
       "ioPerM": 3,
+      "cacheReadPerM": 0.3,
+      "serviceTierPricing": {
+        "standard": {
+          "inPerM": 2,
+          "cacheReadPerM": 0.5,
+          "outPerM": 6
+        },
+        "fast": {
+          "inPerM": 4,
+          "cacheReadPerM": 1,
+          "outPerM": 18
+        }
+      },
       "reasoning": {
         "effort": {
           "options": [
@@ -583,9 +671,10 @@
       "context": "500K",
       "perf": 3,
       "costTier": 5,
-      "inPerM": 0,
-      "outPerM": 0,
-      "ioPerM": 0,
+      "inPerM": 4,
+      "outPerM": 18,
+      "ioPerM": 7.5,
+      "cacheReadPerM": 1,
       "reasoning": {
         "effort": {
           "options": [
@@ -1096,9 +1185,10 @@
       "context": "500K",
       "perf": 3,
       "costTier": 5,
-      "inPerM": 0,
-      "outPerM": 0,
-      "ioPerM": 0,
+      "inPerM": 2,
+      "outPerM": 6,
+      "ioPerM": 3,
+      "cacheReadPerM": 0.3,
       "reasoning": {
         "effort": {
           "options": [
