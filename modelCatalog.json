@@ -1191,16 +1191,6 @@
         "maxImages": 20,
         "maxBytesPerImage": 5242880
       }
-    },
-    {
-      "id": "qa-remote-catalog-test",
-      "label": "QA Remote Catalog Test",
-      "provider": "openrouter",
-      "subscription": false,
-      "runtimeModel": "qa-remote-catalog-test",
-      "orModelId": "qa/remote-catalog-test",
-      "description": "E2E test entry — safe to remove.",
-      "context": "8K"
     }
   ]
 }
