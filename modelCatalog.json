@@ -1,6 +1,7 @@
 {
   "_about": "Single source of truth for model routing, leaderboard metrics and reasoning control. Anthropic is native on Claude Code and uses local Claude OAuth on Codex; OpenAI is native on Codex and uses local Codex OAuth on Claude Code; provider=openrouter models use OpenRouter on either harness. The selected harness process never changes. Add a model by adding one entry, then run `npm run catalog:publish` to ship it to all users without an app release (docs/기획 노트 — 원격 모델 카탈로그.md).",
   "schemaVersion": 1,
+  "revision": 2026092901,
   "models": [
     {
       "id": "claude-fable-5-1[1m]",
@@ -195,13 +196,53 @@
       }
     },
     {
+      "id": "claude-sonnet-5-5",
+      "label": "Sonnet 5.5",
+      "provider": "anthropic",
+      "subscription": true,
+      "claudeSubscriptionModel": "claude-sonnet-5-5",
+      "description": "Sonnet 5.5 with native 1M context and 128K max output. Pricing measured from CLI 2.1.284 cost reports ($2 in / $10 out per M); effort low through max accepted (verified 29 Sep '26).",
+      "context": "1M",
+      "perf": 4,
+      "costTier": 5,
+      "inPerM": 2,
+      "outPerM": 10,
+      "ioPerM": 4,
+      "cacheReadPerM": 0.2,
+      "reasoning": {
+        "effort": {
+          "options": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ],
+          "default": "high"
+        },
+        "thinking": {
+          "modes": [
+            "adaptive",
+            "disabled"
+          ],
+          "default": "adaptive"
+        }
+      },
+      "vision": {
+        "image": true,
+        "maxImages": 20,
+        "maxBytesPerImage": 5242880
+      }
+    },
+    {
       "id": "sonnet",
       "label": "Sonnet 4.6",
       "provider": "anthropic",
       "subscription": true,
       "claudeSubscriptionModel": "claude-sonnet-4-6",
+      "runtimeModel": "claude-sonnet-4-6",
       "orModelId": "anthropic/claude-sonnet-4.6",
-      "description": "Sonnet. Efficient default for routine coding tasks.",
+      "description": "Sonnet 4.6. Efficient default for routine coding tasks. Pinned by runtimeModel: the CLI's short 'sonnet' alias resolves to Sonnet 5.5 as of CLI 2.1.284, so the alias alone would silently serve 5.5 under this label (verified 29 Sep '26).",
       "context": "1M",
       "perf": 3,
       "costTier": 5,
@@ -330,6 +371,14 @@
       "context": "272K",
       "perf": 5,
       "costTier": 5,
+      "inPerM": 2,
+      "cacheReadPerM": 0.2,
+      "cacheWritePerM": 2.5,
+      "outPerM": 10,
+      "serviceTierPricing": {
+        "priority": { "inPerM": 4, "cacheReadPerM": 0.4, "cacheWritePerM": 5, "outPerM": 20 },
+        "fast": { "inPerM": 4, "cacheReadPerM": 0.4, "cacheWritePerM": 5, "outPerM": 20 }
+      },
       "reasoning": {
         "effort": {
           "options": [
@@ -347,6 +396,30 @@
         "maxImages": 20,
         "maxBytesPerImage": 5242880
       }
+    },
+    {
+      "id": "GPT-6 Luna",
+      "label": "GPT-6 Luna",
+      "provider": "openai",
+      "codexModel": "gpt-6-luna",
+      "runtimeModel": "claude-gpt-6-luna",
+      "subscription": true,
+      "description": "Fast, cost-efficient GPT-6 coding model. Both harnesses use the signed-in Codex/ChatGPT subscription.",
+      "context": "1.05M",
+      "perf": 3,
+      "costTier": 1,
+      "inPerM": 0.1,
+      "cacheReadPerM": 0.01,
+      "cacheWritePerM": 0.125,
+      "outPerM": 0.5,
+      "serviceTierPricing": {
+        "priority": { "inPerM": 0.2, "cacheReadPerM": 0.02, "cacheWritePerM": 0.25, "outPerM": 1 },
+        "fast": { "inPerM": 0.2, "cacheReadPerM": 0.02, "cacheWritePerM": 0.25, "outPerM": 1 }
+      },
+      "reasoning": {
+        "effort": { "options": ["none", "low", "medium", "high", "xhigh", "max"], "default": "medium" }
+      },
+      "vision": { "image": true, "maxImages": 20, "maxBytesPerImage": 5242880 }
     },
     {
       "id": "GPT-5.6 Sol",
