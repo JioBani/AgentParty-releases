@@ -1,7 +1,7 @@
 {
   "_about": "Single source of truth for model routing, leaderboard metrics and reasoning control. Anthropic is native on Claude Code and uses local Claude OAuth on Codex; OpenAI is native on Codex and uses local Codex OAuth on Claude Code; provider=openrouter models use OpenRouter on either harness. The selected harness process never changes. Add a model by adding one entry, then run `npm run catalog:publish` to ship it to all users without an app release (docs/기획 노트 — 원격 모델 카탈로그.md).",
   "schemaVersion": 1,
-  "revision": 2026100101,
+  "revision": 2026100501,
   "models": [
     {
       "id": "claude-fable-5-1[1m]",
@@ -187,6 +187,62 @@
             "disabled"
           ],
           "default": "disabled"
+        }
+      },
+      "vision": {
+        "image": true,
+        "maxImages": 20,
+        "maxBytesPerImage": 5242880
+      }
+    },
+    {
+      "id": "claude-sonnet-5-5",
+      "label": "Sonnet 5.5",
+      "provider": "anthropic",
+      "subscription": true,
+      "claudeSubscriptionModel": "claude-sonnet-5-5",
+      "description": "Latest Sonnet for everyday coding and well-scoped work. 1M context and adaptive thinking.",
+      "context": "1M",
+      "inPerM": 2,
+      "outPerM": 10,
+      "cacheReadPerM": 0.2,
+      "cacheWritePerM": 2.5,
+      "reasoning": {
+        "effort": {
+          "options": ["low", "medium", "high", "xhigh", "max"],
+          "default": "medium"
+        },
+        "thinking": {
+          "modes": ["adaptive"],
+          "default": "adaptive"
+        }
+      },
+      "vision": {
+        "image": true,
+        "maxImages": 20,
+        "maxBytesPerImage": 5242880
+      }
+    },
+    {
+      "id": "claude-sonnet-5",
+      "label": "Sonnet 5",
+      "provider": "anthropic",
+      "subscription": true,
+      "claudeSubscriptionModel": "claude-sonnet-5",
+      "description": "Previous Sonnet generation for coding and tool use. 1M context and adaptive thinking.",
+      "context": "1M",
+      "inPerM": 2,
+      "outPerM": 10,
+      "cacheReadPerM": 0.2,
+      "cacheWritePerM": 2.5,
+      "reasoning": {
+        "effort": {
+          "options": ["low", "medium", "high", "xhigh", "max"],
+          "default": "high"
+        },
+        "thinking": {
+          "modes": ["adaptive"],
+          "default": "adaptive"
         }
       },
       "vision": {
