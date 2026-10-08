@@ -1,7 +1,7 @@
 {
   "_about": "Single source of truth for model routing, leaderboard metrics and reasoning control. Anthropic is native on Claude Code and uses local Claude OAuth on Codex; OpenAI is native on Codex and uses local Codex OAuth on Claude Code; provider=openrouter models use OpenRouter on either harness. The selected harness process never changes. Add a model by adding one entry, then run `npm run catalog:publish` to ship it to all users without an app release (docs/기획 노트 — 원격 모델 카탈로그.md).",
   "schemaVersion": 1,
-  "revision": 2026100501,
+  "revision": 2026100801,
   "models": [
     {
       "id": "claude-fable-5-1[1m]",
@@ -290,13 +290,47 @@
       }
     },
     {
-      "id": "haiku",
-      "label": "Haiku",
+      "id": "claude-haiku-5-5",
+      "label": "Haiku 5.5",
       "provider": "anthropic",
+      "subscription": true,
+      "claudeSubscriptionModel": "claude-haiku-5-5",
+      "description": "Latest Haiku for fast, high-volume tasks. Requires Claude Code 2.1.293 or newer. Adaptive thinking with medium default effort. Token prices increase fivefold for prompts over 100K tokens.",
+      "context": "1M",
+      "inPerM": 0.1,
+      "outPerM": 0.5,
+      "cacheReadPerM": 0.01,
+      "cacheWritePerM": 0.125,
+      "longContextPricing": {
+        "thresholdTokens": 100000,
+        "inputMultiplier": 5,
+        "outputMultiplier": 5
+      },
+      "reasoning": {
+        "effort": {
+          "options": ["low", "medium", "high", "xhigh", "max"],
+          "default": "medium"
+        },
+        "thinking": {
+          "modes": ["adaptive"],
+          "default": "adaptive"
+        }
+      },
+      "vision": {
+        "image": true,
+        "maxImages": 20,
+        "maxBytesPerImage": 5242880
+      }
+    },
+    {
+      "id": "haiku",
+      "label": "Haiku 4.5",
+      "provider": "anthropic",
+      "runtimeModel": "claude-haiku-4-5-20251001",
       "subscription": true,
       "claudeSubscriptionModel": "claude-haiku-4-5-20251001",
       "orModelId": "anthropic/claude-haiku-4.5",
-      "description": "Haiku. Fastest for quick answers.",
+      "description": "Previous-generation Haiku for quick answers. Pinned to Haiku 4.5 so existing sessions do not follow the CLI's latest haiku alias.",
       "context": "200K",
       "perf": 0,
       "costTier": 3,
