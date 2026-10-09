@@ -4,7 +4,7 @@
   <p>
     <a href="https://github.com/JioBani/AgentParty-releases/releases/latest"><img alt="최신 버전" src="https://img.shields.io/github/v/release/JioBani/AgentParty-releases?display_name=tag&style=flat-square"></a>
     <img alt="Windows 10 이상" src="https://img.shields.io/badge/Windows-10%2B-2563eb?style=flat-square&logo=windows11&logoColor=white">
-    <a href="https://github.com/JioBani/AgentParty-releases/releases"><img alt="다운로드 수" src="https://img.shields.io/github/downloads/JioBani/AgentParty-releases/total?style=flat-square"></a>
+    <a href="https://github.com/JioBani/AgentParty-releases/releases"><img alt="다운로드 수" src="https://img.shields.io/endpoint?url=https%3A%2F%2Fasia-northeast3-agentparty-telemetry-db942.cloudfunctions.net%2FdownloadsBadge%3Fformat%3Dshields&style=flat-square"></a>
   </p>
   <p>
     <a href="https://github.com/JioBani/AgentParty-releases/releases/latest"><b>다운로드</b></a>
