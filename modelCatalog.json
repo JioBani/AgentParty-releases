@@ -1,7 +1,7 @@
 {
   "_about": "Single source of truth for model routing, leaderboard metrics and reasoning control. Anthropic is native on Claude Code and uses local Claude OAuth on Codex; OpenAI is native on Codex and uses local Codex OAuth on Claude Code; provider=openrouter models use OpenRouter on either harness. The selected harness process never changes. Add a model by adding one entry, then run `npm run catalog:publish` to ship it to all users without an app release (docs/기획 노트 — 원격 모델 카탈로그.md).",
   "schemaVersion": 1,
-  "revision": 2026101801,
+  "revision": 2026101802,
   "models": [
     {
       "id": "claude-fable-5-1[1m]",
@@ -1369,19 +1369,19 @@
     },
     {
       "id": "DeepSeek V4 Flash",
-      "label": "DeepSeek V4 Flash",
+      "label": "DeepSeek V4.1 Flash",
       "provider": "deepseek",
       "runtimeModel": "claude-deepseek-flash",
       "deepseekModel": "deepseek-v4-flash",
       "deepseekResponsesApi": true,
       "subscription": false,
-      "description": "DeepSeek-V4-Flash-0731 (284B total / 13B active) on DeepSeek's own API. 384K max output, cache-hit input $0.0028/M. Verified 2026-08-13 (Responses API now also serves v4-pro, so this is no longer the only codex-reachable DeepSeek model).",
-      "context": "1M",
-      "perf": 1,
+      "description": "DeepSeek's official Flash API, currently serving DeepSeek-V4.1-Flash-1017 with native image input, 1,048,576-token context and up to 393,216 output tokens. DeepSeek lists the canonical API name as deepseek-flash; this existing route keeps the supported deepseek-v4-flash compatibility alias so saved sessions do not change identity. Prices show peak rates ($0.30/$1.20 per M); off-peak is half and cache-hit input is $0.006/$0.003. Verified against authenticated /models and real Messages/Responses calls 2026-10-18.",
+      "context": "1.05M",
       "costTier": 1,
-      "inPerM": 0.14,
-      "outPerM": 0.28,
-      "ioPerM": 0.175,
+      "inPerM": 0.3,
+      "outPerM": 1.2,
+      "ioPerM": 0.525,
+      "cacheReadPerM": 0.006,
       "reasoning": {
         "effort": {
           "options": [
@@ -1400,7 +1400,7 @@
         }
       },
       "vision": {
-        "image": false
+        "image": true
       }
     },
     {
