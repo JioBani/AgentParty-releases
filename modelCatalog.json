@@ -1,7 +1,7 @@
 {
   "_about": "Single source of truth for model routing, leaderboard metrics and reasoning control. Anthropic is native on Claude Code and uses local Claude OAuth on Codex; OpenAI is native on Codex and uses local Codex OAuth on Claude Code; provider=openrouter models use OpenRouter on either harness. The selected harness process never changes. Add a model by adding one entry, then run `npm run catalog:publish` to ship it to all users without an app release (docs/기획 노트 — 원격 모델 카탈로그.md).",
   "schemaVersion": 1,
-  "revision": 2026100801,
+  "revision": 2026101801,
   "models": [
     {
       "id": "claude-fable-5-1[1m]",
@@ -308,11 +308,19 @@
       },
       "reasoning": {
         "effort": {
-          "options": ["low", "medium", "high", "xhigh", "max"],
+          "options": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ],
           "default": "medium"
         },
         "thinking": {
-          "modes": ["adaptive"],
+          "modes": [
+            "adaptive"
+          ],
           "default": "adaptive"
         }
       },
@@ -326,8 +334,8 @@
       "id": "haiku",
       "label": "Haiku 4.5",
       "provider": "anthropic",
-      "runtimeModel": "claude-haiku-4-5-20251001",
       "subscription": true,
+      "runtimeModel": "claude-haiku-4-5-20251001",
       "claudeSubscriptionModel": "claude-haiku-4-5-20251001",
       "orModelId": "anthropic/claude-haiku-4.5",
       "description": "Previous-generation Haiku for quick answers. Pinned to Haiku 4.5 so existing sessions do not follow the CLI's latest haiku alias.",
@@ -1285,6 +1293,41 @@
       },
       "vision": {
         "image": false
+      }
+    },
+    {
+      "id": "DeepSeek V4.1 Flash 1017",
+      "label": "DeepSeek V4.1 Flash 1017",
+      "provider": "openrouter",
+      "runtimeModel": "claude-deepseek-v4-1-flash-1017",
+      "orModelId": "deepseek/deepseek-v4.1-flash-1017",
+      "subscription": false,
+      "description": "October 17, 2026 snapshot of DeepSeek V4.1 Flash on OpenRouter, with native image input and up to 384K output tokens. Prices show reference Off-Peak rates; actual provider and time-of-day pricing can vary.",
+      "context": "1.05M",
+      "costTier": 1,
+      "inPerM": 0.15,
+      "outPerM": 0.6,
+      "ioPerM": 0.2625,
+      "cacheReadPerM": 0.003,
+      "reasoning": {
+        "effort": {
+          "options": [
+            "low",
+            "high",
+            "max"
+          ],
+          "default": "high"
+        },
+        "thinking": {
+          "modes": [
+            "enabled",
+            "disabled"
+          ],
+          "default": "enabled"
+        }
+      },
+      "vision": {
+        "image": true
       }
     },
     {
