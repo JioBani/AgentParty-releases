@@ -1,7 +1,7 @@
 {
   "_about": "Single source of truth for model routing, leaderboard metrics and reasoning control. Anthropic is native on Claude Code and uses local Claude OAuth on Codex; OpenAI is native on Codex and uses local Codex OAuth on Claude Code; provider=openrouter models use OpenRouter on either harness. The selected harness process never changes. Add a model by adding one entry, then run `npm run catalog:publish` to ship it to all users without an app release (docs/기획 노트 — 원격 모델 카탈로그.md).",
   "schemaVersion": 1,
-  "revision": 2026101802,
+  "revision": 2026101803,
   "models": [
     {
       "id": "claude-fable-5-1[1m]",
@@ -1743,6 +1743,160 @@
         "maxImages": 20,
         "maxBytesPerImage": 5242880
       }
+    },
+    {
+      "id": "MiMo 2.6 Pro B.AI",
+      "label": "MiMo 2.6 Pro (B.AI)",
+      "provider": "bai",
+      "runtimeModel": "claude-bai-mimo-v2-6-pro",
+      "baiModel": "mimo-v2.6-pro",
+      "baiResponsesApi": true,
+      "baiMessagesApi": true,
+      "subscription": false,
+      "description": "Xiaomi's multimodal flagship for complex coding and long-running tool workflows, billed to B.AI credits. Standard reference pricing; promotions and account benefits may lower actual charges. Codex none/high selects thinking off/on; Claude Code uses the thinking switch because B.AI Messages ignores effort. Verified 2026-10-18.",
+      "context": "1M",
+      "costTier": 1,
+      "inPerM": 0.435,
+      "outPerM": 0.87,
+      "ioPerM": 0.54375,
+      "cacheReadPerM": 0.0036,
+      "reasoning": {
+        "effort": { "options": ["none", "high"], "default": "high" },
+        "thinking": { "modes": ["adaptive", "disabled"], "default": "adaptive" }
+      },
+      "vision": { "image": true, "video": true }
+    },
+    {
+      "id": "MiMo 2.6 Flash B.AI",
+      "label": "MiMo 2.6 Flash (B.AI)",
+      "provider": "bai",
+      "runtimeModel": "claude-bai-mimo-v2-6-flash",
+      "baiModel": "mimo-v2.6-flash",
+      "baiResponsesApi": true,
+      "baiMessagesApi": true,
+      "subscription": false,
+      "description": "Xiaomi's cost-efficient multimodal model for coding, document analysis and tool workflows, billed to B.AI credits. Standard reference pricing; promotions and account benefits may lower actual charges. Codex none/high selects thinking off/on; Claude Code uses the thinking switch because B.AI Messages ignores effort. Verified 2026-10-18.",
+      "context": "1M",
+      "costTier": 1,
+      "inPerM": 0.14,
+      "outPerM": 0.28,
+      "ioPerM": 0.175,
+      "cacheReadPerM": 0.0028,
+      "reasoning": {
+        "effort": { "options": ["none", "high"], "default": "high" },
+        "thinking": { "modes": ["adaptive", "disabled"], "default": "adaptive" }
+      },
+      "vision": { "image": true, "video": true }
+    },
+    {
+      "id": "GLM 5.3 B.AI",
+      "label": "GLM 5.3 (B.AI)",
+      "provider": "bai",
+      "runtimeModel": "claude-bai-glm-5-3",
+      "baiModel": "glm-5.3",
+      "baiResponsesApi": true,
+      "baiMessagesApi": true,
+      "subscription": false,
+      "description": "Z.AI's text-only model for complex engineering and long-horizon coding agents, billed to B.AI credits. Thinking remains enabled. Codex supports low/high/max; B.AI Messages ignores Claude Code effort. Standard reference pricing; actual discounts vary. Verified 2026-10-18.",
+      "context": "1M",
+      "costTier": 3,
+      "inPerM": 1.4,
+      "outPerM": 4.4,
+      "ioPerM": 2.15,
+      "cacheReadPerM": 0.28,
+      "reasoning": {
+        "effort": { "options": ["low", "high", "max"], "default": "max" },
+        "thinking": { "modes": ["adaptive"], "default": "adaptive" }
+      },
+      "vision": { "image": false }
+    },
+    {
+      "id": "GLM 5.3 Flash B.AI",
+      "label": "GLM 5.3 Flash (B.AI)",
+      "provider": "bai",
+      "runtimeModel": "claude-bai-glm-5-3-flash",
+      "baiModel": "glm-5.3-flash",
+      "baiResponsesApi": true,
+      "baiMessagesApi": true,
+      "subscription": false,
+      "description": "Z.AI's economical multimodal model for visual coding, documents and tool workflows, billed to B.AI credits. Thinking cannot be disabled. Codex supports low/high/max; B.AI Messages ignores Claude Code effort. Standard reference pricing; actual discounts vary. Verified 2026-10-18.",
+      "context": "1M",
+      "costTier": 1,
+      "inPerM": 0.15,
+      "outPerM": 0.5,
+      "ioPerM": 0.2375,
+      "cacheReadPerM": 0.03,
+      "reasoning": {
+        "effort": { "options": ["low", "high", "max"], "default": "max" },
+        "thinking": { "modes": ["adaptive"], "default": "adaptive" }
+      },
+      "vision": { "image": true, "video": true }
+    },
+    {
+      "id": "GLM 5.3 FlashX B.AI",
+      "label": "GLM 5.3 FlashX (B.AI)",
+      "provider": "bai",
+      "runtimeModel": "claude-bai-glm-5-3-flashx",
+      "baiModel": "glm-5.3-flashx",
+      "baiResponsesApi": true,
+      "baiMessagesApi": true,
+      "subscription": false,
+      "description": "The speed-optimized GLM 5.3 Flash variant for interactive coding and multimodal agents, billed to B.AI credits. Thinking remains enabled. Codex supports low/high/max; B.AI Messages ignores Claude Code effort. Standard reference pricing; actual discounts vary. Verified 2026-10-18.",
+      "context": "1M",
+      "costTier": 1,
+      "inPerM": 0.37,
+      "outPerM": 1.25,
+      "ioPerM": 0.59,
+      "cacheReadPerM": 0.075,
+      "reasoning": {
+        "effort": { "options": ["low", "high", "max"], "default": "max" },
+        "thinking": { "modes": ["adaptive"], "default": "adaptive" }
+      },
+      "vision": { "image": true, "video": true }
+    },
+    {
+      "id": "Qwen3.8 Max B.AI",
+      "label": "Qwen3.8 Max (B.AI)",
+      "provider": "bai",
+      "runtimeModel": "claude-bai-qwen3-8-max",
+      "baiModel": "qwen3.8-max",
+      "baiResponsesApi": true,
+      "baiMessagesApi": true,
+      "subscription": false,
+      "description": "Alibaba's multimodal flagship for complex coding, research and long-horizon agents, billed to B.AI credits. Codex supports none to disable thinking and low/medium/xhigh effort; Claude Code uses the thinking switch because B.AI Messages ignores effort. Standard reference pricing; actual discounts vary. Verified 2026-10-18.",
+      "context": "1M",
+      "costTier": 4,
+      "inPerM": 2,
+      "outPerM": 6,
+      "ioPerM": 3,
+      "cacheReadPerM": 0.25,
+      "reasoning": {
+        "effort": { "options": ["none", "low", "medium", "xhigh"], "default": "xhigh" },
+        "thinking": { "modes": ["adaptive", "disabled"], "default": "adaptive" }
+      },
+      "vision": { "image": true, "video": true }
+    },
+    {
+      "id": "Qwen3.8 Flash B.AI",
+      "label": "Qwen3.8 Flash (B.AI)",
+      "provider": "bai",
+      "runtimeModel": "claude-bai-qwen3-8-flash",
+      "baiModel": "qwen3.8-flash",
+      "baiResponsesApi": true,
+      "baiMessagesApi": true,
+      "subscription": false,
+      "description": "Alibaba's cost-efficient multimodal model for coding, long documents and visual workflows, billed to B.AI credits. Codex none/high selects thinking off/on; Claude Code uses the thinking switch because B.AI Messages ignores effort. Standard reference pricing; actual discounts vary. Verified 2026-10-18.",
+      "context": "1M",
+      "costTier": 1,
+      "inPerM": 0.16,
+      "outPerM": 0.47,
+      "ioPerM": 0.2375,
+      "cacheReadPerM": 0.016,
+      "reasoning": {
+        "effort": { "options": ["none", "high"], "default": "high" },
+        "thinking": { "modes": ["adaptive", "disabled"], "default": "adaptive" }
+      },
+      "vision": { "image": true, "video": true }
     },
     {
       "id": "DeepSeek V4.1 Flash B.AI",
