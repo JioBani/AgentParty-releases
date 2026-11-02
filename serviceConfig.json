@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "signalingUrls": [
+    "wss://miniserver.tailbbc375.ts.net:8443/v1/ws"
+  ]
+}
