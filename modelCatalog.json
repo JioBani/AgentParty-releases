@@ -1,7 +1,7 @@
 {
   "_about": "Single source of truth for model routing, leaderboard metrics and reasoning control. Anthropic is native on Claude Code and uses local Claude OAuth on Codex; OpenAI is native on Codex and uses local Codex OAuth on Claude Code; provider=openrouter models use OpenRouter on either harness. The selected harness process never changes. Add a model by adding one entry, then run `npm run catalog:publish` to ship it to all users without an app release (docs/기획 노트 — 원격 모델 카탈로그.md).",
   "schemaVersion": 1,
-  "revision": 2026111001,
+  "revision": 2026111002,
   "models": [
     {
       "id": "claude-fable-5-2[1m]",
@@ -506,8 +506,18 @@
       "cacheWritePerM": 1.25,
       "outPerM": 5,
       "serviceTierPricing": {
-        "priority": { "inPerM": 2, "cacheReadPerM": 0.1, "cacheWritePerM": 2.5, "outPerM": 10 },
-        "fast": { "inPerM": 2, "cacheReadPerM": 0.1, "cacheWritePerM": 2.5, "outPerM": 10 }
+        "priority": {
+          "inPerM": 2,
+          "cacheReadPerM": 0.1,
+          "cacheWritePerM": 2.5,
+          "outPerM": 10
+        },
+        "fast": {
+          "inPerM": 2,
+          "cacheReadPerM": 0.1,
+          "cacheWritePerM": 2.5,
+          "outPerM": 10
+        }
       },
       "longContextPricing": {
         "thresholdTokens": 272000,
@@ -516,11 +526,21 @@
       },
       "reasoning": {
         "effort": {
-          "options": ["low", "medium", "high", "xhigh", "max"],
+          "options": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ],
           "default": "low"
         }
       },
-      "vision": { "image": true, "maxImages": 20, "maxBytesPerImage": 5242880 }
+      "vision": {
+        "image": true,
+        "maxImages": 20,
+        "maxBytesPerImage": 5242880
+      }
     },
     {
       "id": "GPT-6 Sol",
@@ -972,6 +992,38 @@
       },
       "vision": {
         "image": true,
+        "maxImages": 20,
+        "maxBytesPerImage": 5242880
+      }
+    },
+    {
+      "id": "Muse Ember",
+      "label": "Muse Ember",
+      "provider": "openrouter",
+      "runtimeModel": "claude-muse-ember",
+      "orModelId": "meta/muse-ember",
+      "subscription": false,
+      "description": "Meta's smallest, most efficient Muse model for repeated agent work: tool calls, coding subtasks, routing and extraction; accepts text, images, video, audio and documents.",
+      "context": "1.05M",
+      "inPerM": 0.1,
+      "outPerM": 0.5,
+      "ioPerM": 0.2,
+      "cacheReadPerM": 0.004,
+      "reasoning": {
+        "effort": {
+          "options": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ],
+          "default": "max"
+        }
+      },
+      "vision": {
+        "image": true,
+        "video": true,
         "maxImages": 20,
         "maxBytesPerImage": 5242880
       }
