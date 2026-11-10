@@ -1,8 +1,48 @@
 {
   "_about": "Single source of truth for model routing, leaderboard metrics and reasoning control. Anthropic is native on Claude Code and uses local Claude OAuth on Codex; OpenAI is native on Codex and uses local Codex OAuth on Claude Code; provider=openrouter models use OpenRouter on either harness. The selected harness process never changes. Add a model by adding one entry, then run `npm run catalog:publish` to ship it to all users without an app release (docs/기획 노트 — 원격 모델 카탈로그.md).",
   "schemaVersion": 1,
-  "revision": 2026102701,
+  "revision": 2026111001,
   "models": [
+    {
+      "id": "claude-fable-5-2[1m]",
+      "label": "Fable 5.2",
+      "provider": "anthropic",
+      "subscription": true,
+      "claudeSubscriptionModel": "claude-fable-5-2",
+      "orModelId": "anthropic/claude-fable-5-2",
+      "description": "Fable 5.2, the newest Mythos-class frontier model, at 20% below Fable 5.1's per-token price. 1M context, 128K max output. Adaptive thinking is always on (cannot be disabled); safety classifiers may refuse a request. Verified through Claude Code 2.1.319 on 10 Nov '26.",
+      "context": "1M",
+      "perf": 5,
+      "costTier": 5,
+      "inPerM": 8,
+      "outPerM": 40,
+      "ioPerM": 16,
+      "cacheReadPerM": 0.2,
+      "cacheWritePerM": 10,
+      "reasoning": {
+        "effort": {
+          "options": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ],
+          "default": "high"
+        },
+        "thinking": {
+          "modes": [
+            "adaptive"
+          ],
+          "default": "adaptive"
+        }
+      },
+      "vision": {
+        "image": true,
+        "maxImages": 20,
+        "maxBytesPerImage": 5242880
+      }
+    },
     {
       "id": "claude-fable-5-1[1m]",
       "label": "Fable 5.1",
