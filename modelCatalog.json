@@ -1,7 +1,7 @@
 {
   "_about": "Single source of truth for model routing, leaderboard metrics and reasoning control. Anthropic is native on Claude Code and uses local Claude OAuth on Codex; OpenAI is native on Codex and uses local Codex OAuth on Claude Code; provider=openrouter models use OpenRouter on either harness. The selected harness process never changes. Add a model by adding one entry, then run `npm run catalog:publish` to ship it to all users without an app release (docs/기획 노트 — 원격 모델 카탈로그.md).",
   "schemaVersion": 1,
-  "revision": 2026111002,
+  "revision": 2026111901,
   "models": [
     {
       "id": "claude-fable-5-2[1m]",
@@ -397,6 +397,112 @@
           "default": 4096,
           "min": 1024,
           "max": 32000
+        }
+      },
+      "vision": {
+        "image": true,
+        "maxImages": 20,
+        "maxBytesPerImage": 5242880
+      }
+    },
+    {
+      "id": "GPT-6.2 Astra",
+      "label": "GPT-6.2 Astra",
+      "provider": "openai",
+      "codexModel": "gpt-6.2-astra",
+      "runtimeModel": "claude-gpt-6.2-astra",
+      "subscription": true,
+      "description": "OpenAI's frontier model for the hardest projects, at 20% below GPT-6 Astra's per-token price. Both harnesses use the signed-in Codex/ChatGPT subscription. Needs Codex CLI 0.170 or newer: older CLIs reject it as unsupported for ChatGPT accounts.",
+      "context": "272K",
+      "perf": 5,
+      "costTier": 5,
+      "inPerM": 8,
+      "outPerM": 40,
+      "ioPerM": 16,
+      "cacheReadPerM": 0.8,
+      "cacheWritePerM": 10,
+      "serviceTierPricing": {
+        "priority": {
+          "inPerM": 16,
+          "cacheReadPerM": 1.6,
+          "cacheWritePerM": 20,
+          "outPerM": 80
+        },
+        "fast": {
+          "inPerM": 16,
+          "cacheReadPerM": 1.6,
+          "cacheWritePerM": 20,
+          "outPerM": 80
+        }
+      },
+      "longContextPricing": {
+        "thresholdTokens": 272000,
+        "inputMultiplier": 2,
+        "outputMultiplier": 1.5
+      },
+      "reasoning": {
+        "effort": {
+          "options": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ],
+          "default": "low"
+        }
+      },
+      "vision": {
+        "image": true,
+        "maxImages": 20,
+        "maxBytesPerImage": 5242880
+      }
+    },
+    {
+      "id": "GPT-6.2 Sol",
+      "label": "GPT-6.2 Sol",
+      "provider": "openai",
+      "codexModel": "gpt-6.2-sol",
+      "runtimeModel": "claude-gpt-6.2-sol",
+      "subscription": true,
+      "description": "OpenAI's efficient everyday model for coding and agentic work, within 0.5 points of GPT-6.2 Astra on FrontierCode 2.0 at about one-fifth the cost. Both harnesses use the signed-in Codex/ChatGPT subscription. Needs Codex CLI 0.170 or newer: older CLIs reject it as unsupported for ChatGPT accounts.",
+      "context": "500K",
+      "perf": 5,
+      "costTier": 5,
+      "inPerM": 2,
+      "outPerM": 10,
+      "ioPerM": 4,
+      "cacheReadPerM": 0.1,
+      "cacheWritePerM": 2.5,
+      "serviceTierPricing": {
+        "priority": {
+          "inPerM": 4,
+          "cacheReadPerM": 0.2,
+          "cacheWritePerM": 5,
+          "outPerM": 20
+        },
+        "fast": {
+          "inPerM": 4,
+          "cacheReadPerM": 0.2,
+          "cacheWritePerM": 5,
+          "outPerM": 20
+        }
+      },
+      "longContextPricing": {
+        "thresholdTokens": 272000,
+        "inputMultiplier": 2,
+        "outputMultiplier": 1.5
+      },
+      "reasoning": {
+        "effort": {
+          "options": [
+            "low",
+            "medium",
+            "high",
+            "xhigh",
+            "max"
+          ],
+          "default": "low"
         }
       },
       "vision": {
